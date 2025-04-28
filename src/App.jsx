@@ -22,16 +22,6 @@ const app = {
 
 function App() {
   const [booksData, setBooksData] = React.useState([
-    { titre: "The Great Gatsby", auteur: "F. Scott Fitzgerald", année: 1925, image: "book.svg" },
-    { titre: "To Kill a Mockingbird", auteur: "Harper Lee", année: 1960, image: "book.svg" },
-    { titre: "1984", auteur: "George Orwell", année: 1949, image: "book.svg" },
-    { titre: "Pride and Prejudice", auteur: "Jane Austen", année: 1813, image: "book.svg" },
-    { titre: "The Hobbit", auteur: "J.R.R. Tolkien", année: 1937, image: "book.svg" },
-    { titre: "The Catcher in the Rye", auteur: "J.D. Salinger", année: 1951, image: "book.svg" },
-    { titre: "Moby-Dick", auteur: "Herman Melville", année: 1851, image: "book.svg" },
-    { titre: "Brave New World", auteur: "Aldous Huxley", année: 1932, image: "book.svg" },
-    { titre: "The Lord of the Rings", auteur: "J.R.R. Tolkien", année: 1954, image: "book.svg" },
-    { titre: "Crime and Punishment", auteur: "Fyodor Dostoevsky", année: 1866, image: "book.svg" }
   ]);
   // Form state
   const [newBook, setNewBook] = React.useState({
@@ -39,6 +29,22 @@ function App() {
     auteur: '',
     année: '',
   });
+
+  // Fetch books data from backend
+  const fetchBooks = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/books");
+      const data = await response.json();
+      setBooksData(data);
+    } catch (error) {
+      console.error("Error fetching books:", error);
+    }
+  };
+
+  React.useEffect(() => {
+    fetchBooks();
+  }, []);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewBook(prevState => ({
@@ -46,16 +52,42 @@ function App() {
       [name]: value
     }));
   };
-  const handleFormSubmit = (e) => {
+
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
     const bookToAdd = { ...newBook, image: "book.svg" };
-    setBooksData(prevBooks => [...prevBooks, bookToAdd]);
-    setNewBook({ titre: '', auteur: '', année: '' });
+
+    // Add new book to the backend
+    try {
+      const response = await fetch("http://localhost:5000/api/books", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(bookToAdd)
+      });
+
+      if (response.ok) {
+        fetchBooks(); // Refresh the books list after adding a new book
+        setNewBook({ titre: '', auteur: '', année: '' }); // Reset form fields
+      }
+    } catch (error) {
+      console.error("Error adding book:", error);
+    }
   };
 
-  const deleteBook = (index) => {
-    const updatedBooks = booksData.filter((book, bookIndex) => bookIndex !== index);
-    setBooksData(updatedBooks);
+  const deleteBook = async (index) => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/books/${index}`, {
+        method: "DELETE"
+      });
+
+      if (response.ok) {
+        fetchBooks(); // Refresh the books list after deleting
+      }
+    } catch (error) {
+      console.error("Error deleting book:", error);
+    }
   };
 
   return (
