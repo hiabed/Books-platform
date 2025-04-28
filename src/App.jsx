@@ -4,6 +4,7 @@ import React from "react";
 
 const mainStyle = {
   // minWidth: 1920,
+  paddingTop: 100,
   width: "100vw",
   minHeight: "900px",
   backgroundColor: "#D7D7D7",
