@@ -1,0 +1,361 @@
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #000;
+}
+
+.add {
+  height: 46px;
+  width: 147px;
+  border-radius: 23px;
+  display: "flex";
+  align-items: "center";
+  justify-content: "center";
+  color: "black";
+  background-color: "white";
+  font-size: 15px;
+}
+
+.add:hover {
+  background-color: #423636 !important;
+  color: white !important;
+  cursor: pointer;
+  opacity: 0.9;
+  box-shadow: 0 0 3px #423636;
+}
+
+body {
+  background-color: #d6d6d6;
+}
+
+#aboutnskills {
+  display: flex;
+  width: 100vw;
+  background: linear-gradient(90deg, rgb(215, 215, 215) 0%, rgb(215, 215, 215) 57%, rgb(122 122 122) 100%);
+  flex-direction: column;
+  align-items: center;
+}
+
+.App {
+  min-width: 100vw;
+  text-align: center;
+  background-color: #D7D7D7;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  width: 80%;
+}
+
+.book-card {
+  background-color: white;
+  border: 1px solid #ccc; /* light gray border */
+  border-radius: 8px;
+  width: 250px;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.book-card h2 {
+  font-size: 20px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  font-size: 16px;
+  color: gray;
+  margin: 5px 0;
+}
+
+.per-infos {
+  height: 100%;
+  width: fit-content;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 54px;
+  justify-content: center;
+  align-items: flex-start;
+  /* margin-left: 160px; */
+  font-family: "Raleway";
+
+}
+
+.navig {
+  left: 0;
+  color: white;
+  width: 100vw;
+  height: 66px;
+  /* opacity: 0.9; */
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  font-size: 17px;
+  gap: 8px;
+  z-index: 2;
+  justify-content: flex-end;
+  padding-right: 65px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.nav {
+  display: flex;
+  width: 147px;
+  height: 46px;
+  flex-direction: column;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #FFF;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+
+}
+
+.nav:hover {
+  opacity: 0.7;
+}
+
+.social {
+  display: flex;
+  width: 61px;
+  height: 56px;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  color: black;
+}
+
+.social:visited {
+  color: black;
+}
+
+.social:active {
+  color: black;
+}
+
+.social:hover {
+  position: relative;
+  bottom: 5px;
+  cursor: pointer;
+}
+
+.socials {
+  display: flex;
+  width: 230px;
+  justify-content: space-between;
+}
+
+.my-name {
+  width: fit-content;
+  font-size: 80px;
+  text-align: start;
+}
+
+.hi {
+  font-size: 25px;
+}
+
+.title {
+  color: #909090;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+#linked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  color: #C4C4C4;
+  width: 38.4px;
+  height: 38.4px;
+  border-radius: 50%;
+}
+
+#me {
+  position: absolute;
+  bottom: 40%;
+  left: 97px;
+  transform: rotate(-9.67deg);
+  width: 500px;
+  height: 539px;
+  filter: drop-shadow(0px 0px 30px rgb(34, 34, 34));
+}
+
+.description-container {
+  overflow: hidden;
+  color: #FFF;
+  font-family: "Montserrat";
+  width: 100%;
+  height: 313px;
+  background: linear-gradient(90deg, rgb(215, 215, 215) 0%, rgb(215, 215, 215) 57%, rgb(122 122 122) 100%);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.description-child {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 70%;
+  height: 100%;
+  gap: 33px;
+  justify-content: center;
+  margin-left: 102px;
+}
+
+.berries {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 5.561px;
+}
+
+.description {
+  overflow: hidden;
+  width: 1148px;
+  height: 89px;
+  text-align: justify;
+  font-family: "Open Sans";
+  font-size: 21px;
+  line-height: 138.682%;
+}
+
+.read-more {
+  display: flex;
+  width: 139px;
+  height: 25px;
+  flex-shrink: 0;
+  font-size: 15px;
+  font-weight: 600;
+  border-left: 2px solid #FFF;
+  border-right: 2px solid #FFF;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* form style */
+
+.book-form-container {
+  width: 600px;
+  display: flex;
+  padding: 20px 0;
+}
+
+#Books {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.book-form {
+  background-color: #c2c2c2;
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  height: 360px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  justify-content: space-evenly;
+}
+
+.book-form h2 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: black;
+}
+
+.book-form input {
+  padding: 10px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.book-form button {
+  padding: 10px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book-form button:hover {
+  background-color: gray;
+}
+
+.delete-btn {
+  background-color: rgba(194, 82, 82);
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: rgba(194, 82, 82, 0.95);
+}
+
+

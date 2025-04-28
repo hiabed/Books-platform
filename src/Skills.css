@@ -1,0 +1,72 @@
+#using-now {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 75px;
+}
+
+.using-now {
+    width: 261px;
+    height: 74px;
+    margin-left: 80px;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    font-family: Montserrat;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 5.561px;
+}
+
+.skills {
+    margin-top: 79px;
+    width: 1004px;
+    height: 1397px;
+}
+
+#git {
+    background: url(../public/Git-Icon.svg) 50% / cover no-repeat;
+    width: 96.242px;
+    height: 100px;
+}
+
+.skill {
+    transition: transform 1s ease-out; 
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 400;
+    letter-spacing: 3.249px;
+    display: flex;
+    height: 52px;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 65px;
+}
+
+/* 37 + 65 = 104 size specified in figma design */
+
+#learning {
+    margin-top: 81px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.skill-box {
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+svg {
+    width: 100%;
+}
+
+#other-skills {
+    margin-top: 82px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
