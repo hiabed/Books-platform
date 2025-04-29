@@ -69,17 +69,14 @@ Go to the backend/ folder and run:
 1- npm install
 2- node server.js
 
-Start your React frontend normally.
+Start your React frontend normally (npm start).
 
 📂 Project structure
 /backend
   - server.js
-  - models/Book.js (schema)
 /src
   - app.jsx
   - app.css
-  - index.jsx
-  - index.css
 
 ✨ Notes
 The project uses a local MongoDB server (not Atlas, no remote database).
