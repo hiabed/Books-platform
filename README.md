@@ -21,7 +21,7 @@ Database model:
   titre: String,
   auteur: String,
   année: Number,
-  image: String
+  image: String (default one just for design purpose.)
 }
 
 Example book:
