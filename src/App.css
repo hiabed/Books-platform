@@ -368,7 +368,13 @@ html {
   background-color: gray;
 }
 
-.delete-btn {
+.buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.delete-btn, .edit-btn {
   background-color: rgba(194, 82, 82);
   color: white;
   border: none;
@@ -376,6 +382,10 @@ html {
   margin-top: 10px;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.edit-btn {
+  background-color: rgb(98, 114, 98);
 }
 
 .delete-btn:hover {

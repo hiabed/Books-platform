@@ -3,7 +3,6 @@ import './App.css';
 import React from "react";
 
 const mainStyle = {
-  // minWidth: 1920,
   paddingTop: 100,
   width: "100vw",
   minHeight: "900px",
@@ -77,6 +76,38 @@ function App() {
     }
   };
 
+  const editBook = async (id) => {
+    const newTitle = prompt("Enter new title:");
+    const newAuthor = prompt("Enter new author:");
+    const newYear = prompt("Enter new year:");
+  
+    if (newTitle && newAuthor && newYear) {
+      try {
+        const response = await fetch(`http://localhost:5000/api/books/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            titre: newTitle,
+            auteur: newAuthor,
+            année: parseInt(newYear)
+          }),
+        });
+  
+        if (response.ok) {
+          const updatedBook = await response.json();
+          console.log('Book updated:', updatedBook);
+  
+          // Refresh books list after edit
+          fetchBooks(); 
+        } else {
+          console.error('Failed to update book');
+        }
+      } catch (error) {
+        console.error('Error updating book:', error);
+      }
+    }
+  };
+
   const deleteBook = async (index) => {
     try {
       const response = await fetch(`http://localhost:5000/api/books/${index}`, {
@@ -143,7 +174,10 @@ function App() {
               <h2>{book.titre}</h2>
               <p><strong>Author:</strong> {book.auteur}</p>
               <p><strong>Year:</strong> {book.année}</p>
-              <button className="delete-btn" onClick={() => deleteBook(index)}>Delete</button>
+              <div className='buttons'>
+                <button className="edit-btn" onClick={() => editBook(book._id)}>Edit</button>
+                <button className="delete-btn" onClick={() => deleteBook(index)}>Delete</button>
+              </div>
             </div>
           ))}
         </div>

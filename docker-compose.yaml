@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  mongo-db:
+    image: mongo
+    container_name: mongo-db
+    ports:
+      - "27018:27017"
+    networks:
+      - mynetwork
+
+  express-api:
+    build: .
+    container_name: express-api
+    ports:
+      - "5000:5000"  # changed from 3000
+    depends_on:
+      - mongo-db
+    networks:
+      - mynetwork
+    environment:
+      - MONGO_URI=mongodb://mongo-db:27017/bookstore
+    command: node server.js  # <-- instead of `npx vite`
+    # You might need to install nodemon if you want auto-restart
+  frontend:
+    build:
+      context: ./src  # <--- this points to your frontend folder
+      dockerfile: Dockerfile  # <--- Dockerfile is inside src/
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - express-api
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
