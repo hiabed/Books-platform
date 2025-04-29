@@ -109,6 +109,7 @@ function App() {
   };
 
   const deleteBook = async (index) => {
+    console.log(index);
     try {
       const response = await fetch(`http://localhost:5000/api/books/${index}`, {
         method: "DELETE"
@@ -176,7 +177,7 @@ function App() {
               <p><strong>Year:</strong> {book.année}</p>
               <div className='buttons'>
                 <button className="edit-btn" onClick={() => editBook(book._id)}>Edit</button>
-                <button className="delete-btn" onClick={() => deleteBook(index)}>Delete</button>
+                <button className="delete-btn" onClick={() => deleteBook(book._id)}>Delete</button>
               </div>
             </div>
           ))}
