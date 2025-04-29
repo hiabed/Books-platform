@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const app = express();
 const PORT = 5000;
 const cors = require('cors');
+
+
 app.use(cors());
 app.use(express.json()); // For parsing JSON in request body
 
@@ -65,9 +67,8 @@ app.put('/api/books/:id', async (req, res) => {
 // Route to delete a book by its ID (not index)
 app.delete('/api/books/:id', async (req, res) => {
   const { id } = req.params;
-
   try {
-    const deletedBook = await Book.findByIdAndDelete(id); // Find and delete by ID
+    const deletedBook = await Book.findByIdAndDelete(id);
     if (!deletedBook) {
       return res.status(404).json({ message: "Book not found" });
     }
